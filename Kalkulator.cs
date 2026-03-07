@@ -7,10 +7,10 @@ internal class Kalkulator
     static (int, int) PoburDwuchLiczb()
     {
         Console.WriteLine("podaj pierwszą liczbe: ");
-        int a = int.Parse(Console.ReadLine());
+        int a = float.TryParse(Console.ReadLine());
        
         Console.WriteLine("podaj drugą liczbe: ");
-        int b = int.Parse(Console.ReadLine());
+        int b = float.TryParse(Console.ReadLine());
         return (a, b);
     }
 
@@ -42,29 +42,34 @@ internal class Kalkulator
 
     static void Main()
     {
-        Console.WriteLine("witaj w kalkulatorze obecne funkcjie to:");
-        Console.WriteLine("1 dodawanie");
-        Console.WriteLine("2 odejmowanie");
-        Console.WriteLine("3 mnorzenie");
-        Console.WriteLine("4 dzielenie");
-
-        Console.WriteLine("\nWybierz numer (1 lub 2): ");
-        string wybur = Console.ReadLine();
-
-        if (wybur == "1")dodawanie();
-        else if (wybur == "2")odejmowanie();
-        else if (wybur == "3")mnorzenie();
-        else if (wybur == "4")dzielenie();
-
-        else
+        while (true)
         {
-            Console.WriteLine("otrzymalen nieodpowiednią liczbe");
-            Console.ReadLine();
-            return;
-        }
+            Console.WriteLine("witaj w kalkulatorze obecne funkcjie to:");
+            Console.WriteLine("1 dodawanie");
+            Console.WriteLine("2 odejmowanie");
+            Console.WriteLine("3 mnorzenie");
+            Console.WriteLine("4 dzielenie");
 
-        Console.WriteLine("\nNaciśnij Enter aby zakończyć...");
-        Console.ReadLine();
+            Console.WriteLine("\nWybierz numer: ");
+            string wybur = Console.ReadLine();
+
+            if (wybur == "0") break;
+            else if (wybur == "1")dodawanie();
+            else if (wybur == "2")odejmowanie();
+            else if (wybur == "3")mnorzenie();
+            else if (wybur == "4")dzielenie();
+
+            else
+            {
+                Console.WriteLine("otrzymalen nieodpowiednią liczbe");
+                Console.ReadLine();
+                return;
+            }
+
+            Console.WriteLine("\nNaciśnij Enter aby zakończyć...");
+            Console.ReadLine();
+        }
+        Console.Write("bye bye");
     }
 
     private string GetDebuggerDisplay()
