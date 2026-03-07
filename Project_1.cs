@@ -14,29 +14,48 @@ internal class Kalkulator
         return (a, b);
     }
 
+    static void dodawanie()
+    {
+        var (a, b) = PoburDwuchLiczb();
+        Console.WriteLine($"{a} + {b} = {a + b}");
+    }
+
+    static void odejmowanie()
+    {
+        var (a, b) = PoburDwuchLiczb();
+        Console.WriteLine($"{a} - {b} = {a - b}");
+    }
+
+    static void mnorzenie()
+    {
+        var (a, b) = PoburDwuchLiczb();
+        Console.WriteLine($"{a} * {b} = {a * b}");
+    }
+
+    static void dzielenie()
+    {
+        var (a, b) = PoburDwuchLiczb();
+        Console.WriteLine($"{a} / {b} = {a / b}");
+    }
+
+
+
     static void Main()
     {
         Console.WriteLine("witaj w kalkulatorze obecne funkcjie to:");
         Console.WriteLine("1 dodawanie");
         Console.WriteLine("2 odejmowanie");
+        Console.WriteLine("3 mnorzenie");
+        Console.WriteLine("4 dzielenie");
 
         Console.WriteLine("\nWybierz numer (1 lub 2): ");
-        string wybur = Console.ReadLine();   // ← tego brakowało !
+        string wybur = Console.ReadLine();
 
-        int output;
+        if (wybur == "1")dodawanie();
+        else if (wybur == "2")odejmowanie();
+        else if (wybur == "3")mnorzenie();
+        else if (wybur == "4")dzielenie();
 
-        if (wybur == "1")
-        {
-            var (input1, input2) = PoburDwuchLiczb();
-            output = input1 + input2;
-            Console.WriteLine($"{input1} + {input2} = {output}");
-        }
-        else if (wybur == "2")
-        {
-            var (input1, input2) = PoburDwuchLiczb();
-            output = input1 - input2;
-            Console.WriteLine($"{input1} - {input2} = {output}");
-        }
         else
         {
             Console.WriteLine("otrzymalen nieodpowiednią liczbe");
